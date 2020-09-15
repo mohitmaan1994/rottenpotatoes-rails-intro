@@ -1,5 +1,5 @@
 -#  This file is app/views/movies/index.html.haml
-%h2 All Movies
+%h1 All Movies
 
 = form_tag movies_path, :method => :get, :id => 'ratings_form' do
   Include:
@@ -8,7 +8,7 @@
     = check_box_tag "ratings[#{rating}]", 1, @checked_filters.include?("#{rating}")
   = submit_tag 'Refresh', :id => 'ratings_submit'
 
-%table#movies.table.table-striped.col-md-12
+%table#movies
   %thead
     %tr
       %th{:class => ("hilite" if @sortby == "title")}= link_to "Movie Title", movies_path(:order => "title"), :id => 'title_header'
